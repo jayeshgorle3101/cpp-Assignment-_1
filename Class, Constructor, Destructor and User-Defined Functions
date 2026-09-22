@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNo;
+    int marks;
+
+public:
+    Student(string n, int r, int m) {
+        name = n;
+        rollNo = r;
+        marks = m;
+        cout << "Constructor called: Student object created.\n";
+    }
+
+    void display() {
+        cout << "\n--- Student Details ---\n";
+        cout << "Name  : " << name << endl;
+        cout << "Roll No: " << rollNo << endl;
+        cout << "Marks  : " << marks << endl;
+    }
+
+    void checkResult() {
+        if (marks >= 40)
+            cout << "Result : Pass" << endl;
+        else
+            cout << "Result : Fail" << endl;
+    }
+
+    ~Student() {
+        cout << "\nDestructor called" << endl;
+    }
+};
+
+int main() {
+    string n;
+    int r, m;
+
+    cout << "Enter student name: ";
+    cin >> n;
+
+    cout << "Enter roll number: ";
+    cin >> r;
+
+    cout << "Enter marks: ";
+    cin >> m;
+
+    Student s(n, r, m);
+    s.display();
+    s.checkResult();
+
+    return 0;
+}
